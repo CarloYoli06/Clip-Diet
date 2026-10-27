@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #09090b;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* Regiones de arrastre de la barra de título personalizada (titleBarStyle: hidden) */
+.app-drag {
+  -webkit-app-region: drag;
+}
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Fondo con resplandor sutil */
+.app-bg {
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(139, 92, 246, 0.12), transparent 60%),
+    radial-gradient(700px 400px at 110% 110%, rgba(217, 70, 239, 0.08), transparent 60%),
+    #09090b;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/[0.06] bg-zinc-900/40 backdrop-blur-xl;
+  }
+  .section-label {
+    @apply mb-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-zinc-500;
+  }
+  .icon-btn {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-lg text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200 disabled:pointer-events-none disabled:opacity-40;
+  }
+}
